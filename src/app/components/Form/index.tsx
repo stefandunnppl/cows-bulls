@@ -117,7 +117,7 @@ export const Form = () => {
       onSubmit={handleSubmit}
       className="inline-flex flex-col gap-4 p-8 bg-white dark:bg-slate-900 dark:text-white rounded-md shadow-2xl min-h-[300px]"
     >
-      <div className="flex gap-4">
+      <div className="flex gap-4 justify-center">
         <Inputs />
         <button
           type="submit"
@@ -132,6 +132,20 @@ export const Form = () => {
         </button>
       </div>
       <Attempts />
+      <div className="border-t border-slate-400 py-4 mt-auto">
+        <h2 className="font-bold mb-2">Instructions</h2>
+        <p className="my-2">
+          Guess a 4 digit number (no digit can be used more than once).
+        </p>
+        <p>
+          <span className="inline-block bg-purple-700 h-4 w-4 rounded-full" /> -
+          Correct number, wrong position
+        </p>
+        <p>
+          <span className="inline-block bg-green-600 h-4 w-4 rounded-full" /> -
+          Correct number & position
+        </p>
+      </div>
     </form>
   );
 };

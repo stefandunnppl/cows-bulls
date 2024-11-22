@@ -19,7 +19,7 @@ export const Attempts = () => {
   }
 
   return (
-    <ul className="flex flex-col gap-2 dark:text-white">
+    <ul className="flex flex-col gap-2 dark:text-white mb-4">
       {attempts.map((attempt, index) => (
         <Attempt {...attempt} key={index} />
       ))}
