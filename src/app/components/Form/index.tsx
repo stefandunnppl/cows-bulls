@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect } from "react";
 import { Inputs } from "../Inputs";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import {
@@ -25,8 +25,6 @@ export const Form = () => {
   const [attempts, setAttempts] = useAtom(previousAttemptsAtom);
   const setInput = useSetAtom(inputValuesAtom);
   const [isSuccess, setIsSuccess] = useAtom(isCorrectAtom);
-
-  const successRef = useRef(false);
 
   useEffect(() => {
     fetch("/api/number")

@@ -5,7 +5,7 @@ import {
 } from "@/app/states/input";
 import clsx from "clsx";
 import { useAtom, useAtomValue } from "jotai";
-import { ChangeEvent, FocusEvent, forwardRef, useState } from "react";
+import { ChangeEvent, forwardRef, useState } from "react";
 
 import animations from "./animation.module.scss";
 
