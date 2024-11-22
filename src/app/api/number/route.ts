@@ -59,7 +59,6 @@ export const POST = async (request: NextRequest) => {
   })();
 
   return NextResponse.json({
-    descrypted: randomNumber,
     attempt,
     correctDigits,
     correctPositions,
