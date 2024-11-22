@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect } from "react";
+import { FormEvent, useCallback, useEffect } from "react";
 import { Inputs } from "../Inputs";
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import {
@@ -26,11 +26,17 @@ export const Form = () => {
   const setInput = useSetAtom(inputValuesAtom);
   const [isSuccess, setIsSuccess] = useAtom(isCorrectAtom);
 
+  const getNumber = useCallback(
+    () =>
+      fetch("/api/number")
+        .then((response) => response.json())
+        .then(({ code }: ObtainResponse) => setCode(code)),
+    [setCode]
+  );
+
   useEffect(() => {
-    fetch("/api/number")
-      .then((response) => response.json())
-      .then(({ code }: ObtainResponse) => setCode(code));
-  }, [setCode]);
+    getNumber();
+  }, [getNumber]);
 
   useEffect(() => {
     const playMusic = () => {
@@ -56,6 +62,8 @@ export const Form = () => {
     setIsSuccess(false);
     setAttempts([]);
     setInput(["", "", "", ""]);
+    setCode(undefined);
+    getNumber();
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
