@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { AppProviders } from "@/Providers/AppProviders";
+import { AppProviders } from "@/app/providers/AppProviders";
 import clsx from "clsx";
 import { Poppins } from "next/font/google";
 
