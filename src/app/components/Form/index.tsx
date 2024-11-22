@@ -32,6 +32,19 @@ export const Form = () => {
       .then(({ code }: ObtainResponse) => setCode(code));
   }, [setCode]);
 
+  useEffect(() => {
+    const playMusic = () => {
+      const bgMusic = new Audio("/bg.mp3");
+      bgMusic.loop = true;
+      bgMusic.play();
+      document.removeEventListener("click", playMusic);
+      document.removeEventListener("keydown", playMusic);
+    };
+
+    document.addEventListener("click", playMusic);
+    document.addEventListener("keydown", playMusic);
+  }, []);
+
   const handleSuccess = () => {
     setIsSuccess(true);
     new Audio("/cow.mp3").play();
