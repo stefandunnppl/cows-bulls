@@ -17,7 +17,7 @@ export const Attempt = ({
   }));
 
   return (
-    <li className="flex gap-2">
+    <li className="flex gap-2 justify-center">
       {characters.map(({ correctDigit, correctPosition, letter }, index) => (
         <div
           key={index}
@@ -30,6 +30,7 @@ export const Attempt = ({
           {letter}
         </div>
       ))}
+      <div className="p-2 min-w-[4ch]" />
     </li>
   );
 };
